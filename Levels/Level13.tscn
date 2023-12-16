@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 2 )]
+cur_level = 13
+button_parameters = [ Vector2( 0, 1 ), Vector2( -2, 0 ), Vector2( 0, 1 ) ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 65541, 23, 0, 131077, 1, 0, 196611, 44, 0, 196613, 2, 0, 262147, 3, 0, 262148, 1, 0, 262149, 1, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( 65539, 43, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 1 )]
+position = Vector2( 255.211, 159.366 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( 1, 6, 0 )
+
+[node name="Player2" parent="Level2" index="0" instance=ExtResource( 1 )]
+position = Vector2( 125.002, 98.8748 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( -78.7089, 323.482 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 10.4872, 375.122 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 109.072, 354.779 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 220.176, 320.352 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 284.335, 282.796 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 329.715, 199.859 )
+z_index = -1000
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( -92.7925, 245.24 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -365.0
+margin_top = -47.0
+margin_right = 8.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "“It is never too soon to be in love,
+only too late to ask on a date."
+text = "“It is never too soon to be in love,
+only too late to ask on a date."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions-Rule2" type="RichTextLabel" parent="." index="17" groups=[
+"InstructionLabels",
+]]
+margin_left = 334.0
+margin_top = 83.5477
+margin_right = 965.0
+margin_bottom = 185.548
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "“I’ll never give up,” they said with trembling voice,
+“I’ll just push some more buttons and leave you no choice”"
+text = "“I’ll never give up,” they said with trembling voice,
+“I’ll just push some more buttons and leave you no choice”"
+__meta__ = {
+"_edit_use_anchors_": false
+}

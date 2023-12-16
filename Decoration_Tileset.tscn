@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Textures/bottom_tile.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bottom" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -64 )
+hframes = 2
+
+[node name="Clouds" type="Sprite" parent="."]
+position = Vector2( 177.553, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -64 )
+hframes = 2
+frame = 1

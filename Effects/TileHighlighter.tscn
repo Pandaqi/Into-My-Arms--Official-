@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/tile_highlighter.png" type="Texture" id=1]
+[ext_resource path="res://Animations/TileHighlighter.tres" type="Animation" id=2]
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TileHighlighter"
+anims/TileHighlighter = ExtResource( 2 )

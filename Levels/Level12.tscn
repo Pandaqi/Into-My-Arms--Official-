@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 12
+button_parameters = [ Vector2( 0, 3 ), Vector2( 0, 1 ), Vector2( 0, 1 ) ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 40, 0, 65540, 0, 0, 65541, 0, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 45, 0, 3, 0, 0, 4, 0, 0, 65539, 41, 0, 65540, 4, 0 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -2, 2, 0, -1, 1, 0, -65536, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 3, 0 )
+
+[node name="Level3" parent="." index="5"]
+tile_data = PoolIntArray( -65537, 44, 0, -131071, 43, 0 )
+
+[node name="Player" parent="Level3" index="0" instance=ExtResource( 2 )]
+position = Vector2( 258.487, 32.5296 )
+
+[node name="Player2" parent="Level3" index="1" instance=ExtResource( 2 )]
+position = Vector2( 0.653046, -95.1975 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( -16.4808, 144.024 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 248.521, 244.725 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 166.371, 234.125 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 65.6698, 194.374 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( -69.4812, 75.1234 )
+z_index = -1000
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 335.972, 204.974 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = 140.255
+margin_top = -270.66
+margin_right = 674.255
+margin_bottom = -43.6604
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "Can’t you see then, it is just too soon?
+If I open my gates to your invitation,
+And you remove your walls without hesitation,
+The curse will lead us to our doom!"
+text = "Can’t you see then, it is just too soon?
+If I open my gates to your invitation,
+And you remove your walls without hesitation,
+The curse will lead us to our doom!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

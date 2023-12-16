@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Textures/light2.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.509938, 0.4978 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.1018 ), -0.934921, 0.0, 0, 0 ]
+
+[node name="WinParticleEffect" type="CPUParticles2D"]
+position = Vector2( 1.39667, -21.6485 )
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+angle = 360.0
+angle_random = 1.0
+scale_amount_random = 0.6
+scale_amount_curve = SubResource( 4 )

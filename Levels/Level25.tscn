@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 25
+button_parameters = [ Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 1 ) ]
+warmth_enabled = true
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -131070, 47, 0, -131069, 47, 0, -131068, 47, 0, -131067, 48, 0, -65534, 47, 0, -65531, 47, 0, 2, 47, 0, 5, 47, 0, 65538, 47, 0, 65541, 47, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( 66.6132, 59.3101 )
+
+[node name="Player2" parent="Level1" index="1" instance=ExtResource( 2 )]
+position = Vector2( 318.747, 128.978 )
+PLAYER_NUM = 1
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -232.0
+margin_top = -199.0
+margin_right = 261.0
+margin_bottom = -99.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "Then suddenly they saw a spectacle unfold!
+Grass to snow, ground to ice, warmth to cold"
+text = "Then suddenly they saw a spectacle unfold!
+Grass to snow, ground to ice, warmth to cold"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions-Rule2" type="RichTextLabel" parent="." index="17" groups=[
+"InstructionLabels",
+]]
+margin_left = 350.633
+margin_top = -111.82
+margin_right = 809.633
+margin_bottom = -11.8195
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "As both cubitos struggled to stay warm
+The voice of the witch raised the alarm"
+text = "As both cubitos struggled to stay warm
+The voice of the witch raised the alarm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions-Rule3" type="RichTextLabel" parent="." index="18" groups=[
+"InstructionLabels",
+]]
+margin_left = -104.862
+margin_top = 258.819
+margin_right = 561.138
+margin_bottom = 366.819
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "[color=#AAFFAA] “You must stay within four tiles of each other!
+If you move too far way, then say goodbye to your lover!”[/color]"
+text = " “You must stay within four tiles of each other!
+If you move too far way, then say goodbye to your lover!”"
+__meta__ = {
+"_edit_use_anchors_": false
+}

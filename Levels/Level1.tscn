@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 2 )]
+cur_level = 1
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 65538, 0, 0, 65539, 0, 0, 131074, 1, 0, 131075, 1, 0, 196610, 0, 0, 196611, 0, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( 1, 0, 0, 2, 0, 0, 131073, 0, 0, 131074, 0, 0 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -65536, 1, 0, -65535, 1, 0, 65536, 1, 0, 65537, 1, 0 )
+
+[node name="Player" parent="Level3" index="0" instance=ExtResource( 1 )]
+position = Vector2( -0.196423, 36.5472 )
+
+[node name="Player2" parent="Level3" index="1" instance=ExtResource( 1 )]
+position = Vector2( 126.49, -34.992 )
+PLAYER_NUM = 1
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="13" groups=[
+"InstructionLabels",
+]]
+margin_left = 222.424
+margin_top = -145.116
+margin_right = 756.424
+margin_bottom = 81.884
+custom_fonts/normal_font = ExtResource( 4 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "[color=#FFAAAA]Rule #2:[/color]
+If one player ever [color=#AAFFAA]sees[/color] the other, 
+you will surely not succeed
+For love is based on trust and touch,
+And control is something she doesn’t need"
+text = "Rule #2:
+If one player ever sees the other, 
+you will surely not succeed
+For love is based on trust and touch,
+And control is something she doesn’t need"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 3 )]
+position = Vector2( -9.85574, 298.553 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 3 )]
+position = Vector2( -116.484, 250.522 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 3 )]
+position = Vector2( 91.0085, 252.444 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 3 )]
+position = Vector2( 195.715, 213.059 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 3 )]
+position = Vector2( -70.3743, 166.949 )
+z_index = -1000
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 3 )]
+position = Vector2( 18.9626, 138.131 )
+z_index = -1000
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 3 )]
+position = Vector2( 136.157, 159.264 )
+z_index = -1000

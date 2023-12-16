@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 10
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 4, 1, 0, 65540, 2, 0, 131075, 1, 0, 131076, 1, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -65531, 1, 0, 2, 43, 0, 4, 43, 0, 5, 1, 0, 65536, 41, 0, 65537, 1, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( 63.3795, 123.475 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( 0, 43, 0 )
+
+[node name="Player2" parent="Level2" index="0" instance=ExtResource( 2 )]
+position = Vector2( 254.162, 103.634 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( -11.1974, 211.909 )
+
+[node name="Particles7" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 100.16, 268.259 )
+
+[node name="Particles2" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( -95.7215, 139.46 )
+
+[node name="Particles3" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 246.084, 265.525 )
+
+[node name="Particles4" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 352.39, 228.009 )
+
+[node name="Particles5" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 439.598, 174.343 )
+z_index = -1000
+
+[node name="Particles6" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( -121.213, 96.5273 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -320.662
+margin_top = -164.566
+margin_right = 76.3375
+margin_bottom = -70.5662
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "So I put up walls and sturdy [color=#AAFFAA]gates[/color]
+To keep you from winning my heart"
+text = "So I put up walls and sturdy gates
+To keep you from winning my heart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions-Rule2" type="RichTextLabel" parent="." index="17" groups=[
+"InstructionLabels",
+]]
+margin_left = 252.954
+margin_top = -97.1711
+margin_right = 789.954
+margin_bottom = -8.17111
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "But a single push from you on the right [color=#AAFFAA]button[/color]
+Makes all these barriers fall apart"
+text = "But a single push from you on the right button
+Makes all these barriers fall apart"
+__meta__ = {
+"_edit_use_anchors_": false
+}

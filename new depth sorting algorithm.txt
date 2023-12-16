@@ -1,0 +1,95 @@
+# SOURCE: Adapted from http://web.archive.org/web/20130908090355/https://mazebert.com/2013/04/18/isometric-depth-sorting/
+# SOURCE 2: This also had interesting things to say: https://stackoverflow.com/questions/44740121/isometric-topological-sort-issue
+# SOURCE 3: And this is an alternative sorting algorithm for "simpler" levels: https://gamedevelopment.tutsplus.com/tutorials/isometric-depth-sorting-for-moving-platforms--cms-30226
+
+###
+#STEP 1: Convert everything to use Z as the up-axis
+#
+# => This considers saving the tile/player position in the grid
+# => Checking if there's something underneath/in front/behind us
+###
+
+###
+# STEP 2: Make each tile in the world save/keep track of the following properties
+###
+ -> pos (Vector3 -> x, y, height)
+
+ -> x_max_bounds (Vector2)
+ -> y_max_bounds (Vector2)
+ -> z_max_bounds (Vector2)
+
+ -> x_bounds (Vector2)
+ -> y_bounds (Vector2)
+ -> z_bounds (Vector2)
+
+ -> sprites_behind ([])
+ -> sorting_visited (bool)
+
+###
+# STEP 3: Set the tile bounds
+#
+# Static tiles set their bounds once at the start, then never again
+# Dynamic tiles set it at start AND everytime they move
+###
+func update_bounds():
+	x_bounds = (pos.x + x_max_bounds.x, pos.x + x_max_bounds.y)
+	y_bounds = (pos.y + y_max_bounds.x, pos.y + y_max_bounds.y)
+	z_bounds = (pos.z + z_max_bounds.x, pos.z + z_max_bounds.y)
+
+###
+# STEP 4
+#
+# Every frame, we must determine which sprites are behind which other sprites
+### 
+var all_sprites
+var behind_index
+
+for s1 in all_sprites:
+	behind_index = 0
+
+	for s2 in all_sprites:
+		if s1 != s2:
+			behind_index += 1
+			if (s2.x_bounds.x < s1.x_bounds.y and s2.y_bounds.x < s1.y_bounds.y and s2.z_bounds.x < s2.z_bounds.y):
+				s1.sprites_behind[behind_index] = s2
+
+	s1.sorting_visited = false
+
+###
+# STEP 5: Then, sort the nodes based on their dependencies
+###
+
+# start at depth 0
+var sort_depth = 0
+
+# visit all nodes
+for s in all_sprites:
+	visit_node(s)
+
+
+func visit_node(s):
+	# if this node has NOT been visited yet ...
+	if not s.sorting_visited:
+		# remember now that we visited
+		s.sorting_visited = true
+
+		# loop through sprites behind it
+		var counter = 0
+		for sprite in s.sprites_behind:
+			# if this is nil, we've reached the end of the list for this frame
+			if sprite == null:
+				break
+
+			# otherwise, visit them, which recursively sets their depth value
+			# (by the time this function returns, all sprites behind this one have been considered, 
+			#  so the sort_depth variable is already at the right value for setting it directly)
+			else:
+				visit_node(sprite)
+				s.sprites_behind[counter] = null
+
+			counter += 1
+
+
+		# finally, set the current depth value for this tile
+		# NOTE: because we set z_index directly, we don't need to loop through the tiles again to sort them visually => Godot handles this
+		s.z_index = sort_depth

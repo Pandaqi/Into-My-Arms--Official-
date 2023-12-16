@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Animations/OutroAnimation.tres" type="Animation" id=1]
+[ext_resource path="res://Fonts/BasicFont16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/IntroAnimation.gd" type="Script" id=4]
+[ext_resource path="res://ScaleManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sound/Outro.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Trailer/Into My Arms_012.png" type="Texture" id=8]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScaleManager" parent="." instance=ExtResource( 5 )]
+in_level = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 492.0
+margin_bottom = 268.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+margin_right = 472.0
+margin_bottom = 223.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" groups=[
+"ResizableNodes",
+]]
+margin_top = 227.0
+margin_right = 472.0
+margin_bottom = 248.0
+custom_fonts/font = ExtResource( 2 )
+text = "And on that final day, the witch returned ..."
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "OutroAnimation"
+anims/OutroAnimation = ExtResource( 1 )

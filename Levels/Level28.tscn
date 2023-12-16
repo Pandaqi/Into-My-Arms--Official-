@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 28
+button_parameters = [ Vector2( 0, 2 ), Vector2( 0, 3 ), Vector2( 0, 3 ) ]
+elevator_move_axes = [ 0, 0, 0 ]
+warmth_enabled = true
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 131079, 48, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -262143, 47, 0, -262142, 47, 0, -262139, 50, 0, -196607, 47, 0, -196605, 47, 0, -196604, 47, 0, -196603, 47, 0, -131072, 54, 0, -131071, 47, 0, -131070, 47, 0, -131068, 47, 0, -65534, 5, 0, -65531, 50, 0, 2, 6, 0, 6, 55, 0, 65538, 7, 0, 131074, 48, 0, 131075, 62, 0, 131076, 62, 0, 131077, 62, 0 )
+
+[node name="Player" parent="Level2" index="0" instance=ExtResource( 2 )]
+position = Vector2( 256.473, -26.2048 )
+
+[node name="Player2" parent="Level2" index="1" instance=ExtResource( 2 )]
+position = Vector2( 448.802, 4.3931 )
+PLAYER_NUM = 1
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = 477.0
+margin_top = -245.0
+margin_right = 1011.0
+margin_bottom = -58.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "Why do you wait for witches?
+A stroke of magic that brings you together?
+It’s just one step, a question, a leap,
+And you could be happy forever after!"
+text = "Why do you wait for witches?
+A stroke of magic that brings you together?
+It’s just one step, a question, a leap,
+And you could be happy forever after!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

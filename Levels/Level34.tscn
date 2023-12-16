@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 3 )]
+cur_level = 34
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 2, 1, 0, 3, 1, 0, 4, 1, 0, 65538, 1, 0, 65539, 3, 0, 65540, 3, 0, 131073, 2, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 196610, 1, 0, 196611, 6, 0, 196612, 1, 0, 262146, 1, 0, 262147, 6, 0, 262148, 1, 0, 327683, 2, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -65535, 10, 0, -65533, 11, 0, 2, 5, 0, 65538, 1, 0, 196609, 13, 0, 196611, 12, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( 128.069, 160.468 )
+
+[node name="Player2" parent="Level1" index="1" instance=ExtResource( 2 )]
+position = Vector2( 0.736328, 94.682 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 132.359, 287.042 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 237.008, 245.451 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 318.849, 217.276 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( -115.846, 321.925 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( -200.37, 214.593 )
+z_index = -1000
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 325.557, 143.485 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -297.608
+margin_top = -180.574
+margin_right = 70.3916
+margin_bottom = -3.57397
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "So I’ll hold a piece of your heart
+And you hold my other half
+For when I see you,
+I see so much of myself …"
+text = "So I’ll hold a piece of your heart
+And you hold my other half
+For when I see you,
+I see so much of myself …"
+__meta__ = {
+"_edit_use_anchors_": false
+}

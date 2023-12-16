@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 2 )]
+cur_level = 30
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -131068, 0, 0, -65533, 1, 0, -65532, 1, 0, 65538, 1, 0, 65539, 51, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -196606, 1, 0, -196605, 0, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 1 )]
+position = Vector2( 63.9077, 65.5562 )
+
+[node name="Player2" parent="Level1" index="1" instance=ExtResource( 1 )]
+position = Vector2( 324.298, 61.0029 )
+PLAYER_NUM = 1
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -262142, 52, 0 )
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( 48.082, 167.65 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 141.237, 204.003 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 360.491, 159.698 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 437.742, 130.161 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 432.062, 75.6313 )
+z_index = -1000
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 9.45685, 96.08 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -78.8567
+margin_top = -215.559
+margin_right = 511.143
+margin_bottom = 11.4414
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "A new tile appeared, question marks all over
+That witch, they thought, she sure knows her spells
+With every move [color=#AAFFAA]you[/color] make,
+[color=#AAFFAA]I teleport[/color] to somewhere else!"
+text = "A new tile appeared, question marks all over
+That witch, they thought, she sure knows her spells
+With every move you make,
+I teleport to somewhere else!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

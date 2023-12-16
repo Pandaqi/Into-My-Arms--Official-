@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 24
+button_parameters = [ Vector2( 0, 2 ), Vector2( -1, 0 ), Vector2( 0, 2 ) ]
+elevator_move_axes = [ 0, 0, 2 ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -196607, 41, 0, -196605, 6, 0, -196604, 2, 0, -131069, 1, 0, -131068, 46, 0, -65533, 46, 0, -65532, 1, 0, -65531, 1, 0, 1, 46, 0, 2, 4, 0, 3, 41, 0, 5, 42, 0, 65537, 1, 0, 65538, 46, 0, 65540, 3, 0, 65541, 1, 0, 131073, 5, 0, 131076, 1, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -196608, 1, 0, -131072, 1, 0, -131071, 1, 0, -65532, 45, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( 4.00626, 33.9951 )
+
+[node name="Player2" parent="Level1" index="1" instance=ExtResource( 2 )]
+position = Vector2( 322.457, -1.11928 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( 105.174, 265.901 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 198.409, 240.473 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 340.077, 247.738 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 427.257, 181.142 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 476.902, 108.491 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 503.54, 29.7869 )
+z_index = -1000
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 290.433, -68.2911 )
+z_index = -1000
+
+[node name="Particles8" parent="CloudManager" index="7" instance=ExtResource( 4 )]
+position = Vector2( 72.4814, -12.5925 )
+z_index = -1000
+
+[node name="Particles9" parent="CloudManager" index="8" instance=ExtResource( 4 )]
+position = Vector2( -9.85565, 41.8953 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -218.0
+margin_top = -261.0
+margin_right = 231.0
+margin_bottom = -72.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "Then let me tell you something,
+I once learnt from that witch in black
+[color=#AAFFAA]“Fear is the heart of love,”[/color]
+And I never looked back"
+text = "Then let me tell you something,
+I once learnt from that witch in black
+“Fear is the heart of love,”
+And I never looked back"
+__meta__ = {
+"_edit_use_anchors_": false
+}

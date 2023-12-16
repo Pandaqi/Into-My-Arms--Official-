@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Textures/player_2_controls.png" type="Texture" id=1]
+[ext_resource path="res://Textures/player_1_controls.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Level1-Tutorial.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=4]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." groups=[
+"InstructionLabels",
+]]
+margin_left = -402.999
+margin_top = -265.36
+margin_right = 131.001
+margin_bottom = -38.3604
+custom_fonts/normal_font = ExtResource( 4 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "[color=#FFAAAA]Rule #1:[/color]
+One player must step [color=#AAFFAA]backwards[/color] from a height,
+And fall [color=#AAFFAA]on top of the other[/color], into their arms
+It’s called a “leap of faith”, 
+And the only way to [color=#AAFFAA]win[/color] each stage"
+text = "Rule #1:
+One player must step backwards from a height,
+And fall on top of the other, into their arms
+It’s called a “leap of faith”, 
+And the only way to win each stage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player1ControlInstructions" type="Sprite" parent="."]
+position = Vector2( -171.68, 91.3055 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Player2ControlInstructions" type="Sprite" parent="."]
+position = Vector2( 368.605, -94.2292 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

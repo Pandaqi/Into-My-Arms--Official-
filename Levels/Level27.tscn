@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 27
+button_parameters = [ Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 1 ) ]
+elevator_move_axes = [ 0, 2, 2 ]
+warmth_enabled = true
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -131072, 47, 0, -131071, 47, 0, -131070, 5, 0, -65536, 47, 0, -65535, 48, 0, -65534, 55, 0, -65532, 50, 0, -65531, 48, 0, 0, 47, 0, 1, 47, 0, 2, 47, 0, 4, 47, 0, 5, 47, 0, 65536, 47, 0, 65537, 47, 0, 65539, 54, 0, 65540, 47, 0, 65541, 47, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -262144, 47, 0, -262143, 56, 0, -262142, 56, 0, -131073, 47, 0, -196608, 56, 0, -65533, 61, 0, 0, 60, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( -65.3847, -2.04811 )
+
+[node name="Player2" parent="Level1" index="1" instance=ExtResource( 2 )]
+position = Vector2( 193.714, 128.81 )
+PLAYER_NUM = 1
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -327680, 47, 0, -327679, 47, 0, -196609, 47, 0, -262144, 47, 0 )
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -237.31
+margin_top = 133.082
+margin_right = 296.69
+margin_bottom = 360.081
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "“Well this is what you get,”
+The other replied in anger
+“Why did you wait for this to happen?
+Why did you postpone, deny and linger?”"
+text = "“Well this is what you get,”
+The other replied in anger
+“Why did you wait for this to happen?
+Why did you postpone, deny and linger?”"
+__meta__ = {
+"_edit_use_anchors_": false
+}

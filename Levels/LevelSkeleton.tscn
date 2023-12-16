@@ -1,0 +1,574 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://TilesetFinal.tres" type="TileSet" id=1]
+[ext_resource path="res://Textures/game_win_heart.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/BackgroundGradient.shader" type="Shader" id=3]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/BasicFont16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=6]
+[ext_resource path="res://Animations/Heart Cutout.tres" type="Animation" id=7]
+[ext_resource path="res://Textures/light2.png" type="Texture" id=8]
+[ext_resource path="res://Tilemap.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ScaleManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://TextureButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Textures/Player1ControlsKeyboard.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/PlayerViewDrawer.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/PauseScreen.gd" type="Script" id=15]
+[ext_resource path="res://Textures/Player2ControlsKeyboard.png" type="Texture" id=16]
+[ext_resource path="res://Effects/WinParticleEffect.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/AdScreen.gd" type="Script" id=18]
+[ext_resource path="res://Scripts/UndoManager.gd" type="Script" id=19]
+[ext_resource path="res://Textures/status_indicators.png" type="Texture" id=20]
+[ext_resource path="res://Animations/AdScreen Fade.tres" type="Animation" id=21]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/grad_bottom = Plane( 0.2, 0.2, 1, 1 )
+shader_param/grad_top = Plane( 0, 1, 1, 1 )
+shader_param/next_bottom = Plane( 0, 0, 0, 0 )
+shader_param/next_top = Plane( 0, 0, 0, 0 )
+shader_param/transition_t = 0.0
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+background_color = Color( 0.556863, 0.760784, 0.909804, 1 )
+tonemap_mode = 2
+tonemap_exposure = 0.75
+glow_enabled = true
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0418939, 0.0424 ), 0.0, 0.0, 0, 0, Vector2( 0.24658, 0.7728 ), 0.0629896, 0.0629896, 0, 0, Vector2( 1, 0.0424 ), -2.15879, 0.0, 0, 0 ]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform sampler2D heart_tex;
+uniform float scale_factor = 0.5;
+
+void fragment() {
+	float scale_factor_y = scale_factor + sin(TIME*4.0)*0.05;
+	float scale_factor_x = scale_factor_y * 0.5;
+//
+	float x = min( max( (UV.x - 0.5 + 0.5*scale_factor_x)*(1.0/scale_factor_x), 0.0), 1.0);
+	float y = min( max( (UV.y - 0.5 + 0.5*scale_factor_y)*(1.0/scale_factor_y), 0.0), 1.0);
+	
+//  LOGIC FLOW THAT HELPED ME FIGURE OUT HOW TO CENTER/SCALE THE HEART PROPERLY
+//	float x = UV.x;
+//	if(x < 0.5 - 0.5*scale_factor_x || x > 0.5 + 0.5*scale_factor_x) {
+//		x = 0.0;
+//	} else {
+//		x = (UV.x - 0.5 + 0.5*scale_factor_x)*(1.0/scale_factor_x);
+//	}
+//////
+//	float y = UV.y;
+//	if(y < 0.25 || y > 0.75) {
+//		y = 0.0;
+//	} else {
+//		y = (UV.y - 0.25)*2.0;
+//	}
+	
+	// SET COLOR, but with the heart cut out
+	COLOR = vec4(1.0, 1.0, 1.0, 1.0 - texture(heart_tex, vec2(x,y)).a);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/scale_factor = 3.0
+shader_param/heart_tex = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="Control" type="Control" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background/Control"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
+environment = SubResource( 2 )
+
+[node name="BackgroundStars" type="CPUParticles2D" parent="Background"]
+position = Vector2( 244.005, 138.571 )
+amount = 16
+texture = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 256, 144 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.8
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_random = 0.4
+scale_amount_curve = SubResource( 3 )
+color = Color( 1, 1, 1, 0.392157 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="ScaleManager" parent="." instance=ExtResource( 10 )]
+
+[node name="Level0" parent="." instance=ExtResource( 9 )]
+
+[node name="Level1" parent="." instance=ExtResource( 9 )]
+
+[node name="Level2" parent="." instance=ExtResource( 9 )]
+
+[node name="Level3" parent="." instance=ExtResource( 9 )]
+
+[node name="EmptyTilemap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+pause_mode = 2
+position = Vector2( 5.2005, 81.434 )
+current = true
+zoom = Vector2( 2, 2 )
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+script = ExtResource( 4 )
+
+[node name="PlayerOverlays" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource( 13 )
+
+[node name="Player1Controls" type="Node2D" parent="GUI" groups=[
+"ResizableNodes",
+]]
+modulate = Color( 1, 0.419608, 0.419608, 1 )
+position = Vector2( 0.0613708, 287.572 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Left1" parent="GUI/Player1Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = 5.89059
+margin_top = -90.5117
+margin_right = 61.8906
+margin_bottom = -34.5117
+particles_enabled = false
+
+[node name="Forward1" parent="GUI/Player1Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = 58.2347
+margin_top = -121.046
+margin_right = 114.235
+margin_bottom = -65.0457
+frame = 2
+particles_enabled = false
+
+[node name="Reverse1" parent="GUI/Player1Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = 58.2347
+margin_top = -57.7966
+margin_right = 114.235
+margin_bottom = -1.7966
+frame = 3
+particles_enabled = false
+
+[node name="Right1" parent="GUI/Player1Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = 111.669
+margin_top = -90.5117
+margin_right = 167.669
+margin_bottom = -34.5117
+frame = 1
+particles_enabled = false
+
+[node name="Player2Controls" type="Node2D" parent="GUI" groups=[
+"ResizableNodes",
+]]
+modulate = Color( 0.623529, 0.392157, 1, 1 )
+position = Vector2( 510.915, 286.644 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Left2" parent="GUI/Player2Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = -166.835
+margin_top = -92.3749
+margin_right = -110.835
+margin_bottom = -36.3749
+particles_enabled = false
+
+[node name="Forward2" parent="GUI/Player2Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = -113.542
+margin_top = -123.463
+margin_right = -57.5419
+margin_bottom = -67.4627
+frame = 2
+particles_enabled = false
+
+[node name="Reverse2" parent="GUI/Player2Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = -112.654
+margin_top = -60.399
+margin_right = -56.6536
+margin_bottom = -4.39896
+frame = 3
+particles_enabled = false
+
+[node name="Right2" parent="GUI/Player2Controls" groups=[
+"ResizeExceptions",
+] instance=ExtResource( 11 )]
+margin_left = -60.2485
+margin_top = -90.5985
+margin_right = -4.24854
+margin_bottom = -34.5985
+frame = 1
+particles_enabled = false
+
+[node name="Player1ControlsKeyboard" type="Node2D" parent="GUI" groups=[
+"ResizableNodes",
+]]
+position = Vector2( 0, 287.171 )
+
+[node name="Sprite" type="Sprite" parent="GUI/Player1ControlsKeyboard"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 12 )
+centered = false
+offset = Vector2( 0, -490 )
+
+[node name="Player2ControlsKeyboard" type="Node2D" parent="GUI" groups=[
+"ResizableNodes",
+]]
+position = Vector2( 510.5, 287.171 )
+
+[node name="Sprite" type="Sprite" parent="GUI/Player2ControlsKeyboard"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( -788, -490 )
+
+[node name="Menu" parent="GUI" instance=ExtResource( 11 )]
+margin_left = 9.98651
+margin_top = 10.2797
+margin_right = 65.9865
+margin_bottom = 66.2797
+rect_min_size = Vector2( 28, 28 )
+scale = Vector2( 28, 28 )
+frame = 5
+particles_enabled = false
+custom_anchor = "top_left"
+
+[node name="Retry2" parent="GUI" instance=ExtResource( 11 )]
+margin_left = 475.52
+margin_top = 12.286
+margin_right = 531.52
+margin_bottom = 68.286
+rect_min_size = Vector2( 28, 28 )
+scale = Vector2( 28, 28 )
+frame = 6
+particles_enabled = false
+custom_anchor = "top_right"
+
+[node name="Undo" parent="GUI" instance=ExtResource( 11 )]
+margin_left = 435.115
+margin_top = 12.286
+margin_right = 491.115
+margin_bottom = 68.286
+rect_min_size = Vector2( 28, 28 )
+scale = Vector2( 28, 28 )
+frame = 12
+particles_enabled = false
+custom_anchor = "top_right"
+anchor_offset = 1.0
+
+[node name="IceIndicator" type="Node2D" parent="GUI"]
+position = Vector2( 249.583, 0 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite1" type="Sprite" parent="GUI/IceIndicator"]
+position = Vector2( -126.133, 60.83 )
+texture = ExtResource( 20 )
+hframes = 4
+frame = 3
+
+[node name="Sprite2" type="Sprite" parent="GUI/IceIndicator"]
+position = Vector2( -41.1326, 60.83 )
+texture = ExtResource( 20 )
+hframes = 4
+frame = 3
+
+[node name="Sprite3" type="Sprite" parent="GUI/IceIndicator"]
+position = Vector2( 43.8674, 60.83 )
+texture = ExtResource( 20 )
+hframes = 4
+frame = 3
+
+[node name="Sprite4" type="Sprite" parent="GUI/IceIndicator"]
+position = Vector2( 128.867, 60.83 )
+texture = ExtResource( 20 )
+hframes = 4
+frame = 3
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 5
+script = ExtResource( 15 )
+
+[node name="WinParticleEffect" parent="PauseScreen" instance=ExtResource( 17 )]
+position = Vector2( 0, -1 )
+
+[node name="HeartCutout" type="Control" parent="PauseScreen"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PauseScreen/HeartCutout"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="PauseScreen"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultText" type="Label" parent="PauseScreen/Control/VBoxContainer" groups=[
+"ResizableNodes",
+]]
+margin_top = 36.0
+margin_right = 512.0
+margin_bottom = 57.0
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ouch, you lost"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseScreen/Control/VBoxContainer"]
+margin_top = 97.0
+margin_right = 512.0
+margin_bottom = 190.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseScreen/Control/VBoxContainer/HBoxContainer"]
+margin_right = 168.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+
+[node name="Menu" parent="PauseScreen/Control/VBoxContainer/HBoxContainer/CenterContainer" instance=ExtResource( 11 )]
+margin_left = 56.0
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 74.0
+frame = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScreen/Control/VBoxContainer/HBoxContainer"]
+margin_left = 172.0
+margin_right = 340.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+
+[node name="CenterContainer2" type="CenterContainer" parent="PauseScreen/Control/VBoxContainer/HBoxContainer"]
+margin_left = 344.0
+margin_right = 512.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+
+[node name="Next" parent="PauseScreen/Control/VBoxContainer/HBoxContainer/CenterContainer2" instance=ExtResource( 11 )]
+margin_left = 56.0
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 74.0
+frame = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseScreen/Control/VBoxContainer"]
+margin_top = 194.0
+margin_right = 512.0
+margin_bottom = 288.0
+size_flags_vertical = 3
+
+[node name="Retry" parent="PauseScreen/Control/VBoxContainer/CenterContainer" instance=ExtResource( 11 )]
+margin_left = 228.0
+margin_top = 19.0
+margin_right = 284.0
+margin_bottom = 75.0
+frame = 6
+
+[node name="Tween" type="Tween" parent="PauseScreen"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseScreen"]
+"anims/Heart Cutout" = ExtResource( 7 )
+
+[node name="PlayerView0" type="Node2D" parent="."]
+modulate = Color( 3, 3, 3, 1 )
+position = Vector2( 0, -1 )
+z_index = 1000
+script = ExtResource( 14 )
+
+[node name="PlayerView1" type="Node2D" parent="."]
+position = Vector2( 0, -1 )
+z_index = 1000
+script = ExtResource( 14 )
+
+[node name="AdScreen" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 20
+script = ExtResource( 18 )
+
+[node name="ColorRect" type="ColorRect" parent="AdScreen"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.87451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AdScreen"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="AdScreen/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 84.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AdScreen/VBoxContainer/CenterContainer2" groups=[
+"ResizableNodes",
+]]
+margin_left = 113.0
+margin_top = 31.0
+margin_right = 399.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 5 )
+text = "\"Hmm ... let's just pretend that didn't happen, okay?\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="AdScreen/VBoxContainer"]
+margin_top = 88.0
+margin_right = 512.0
+margin_bottom = 200.0
+size_flags_vertical = 3
+
+[node name="TextureButton" parent="AdScreen/VBoxContainer/CenterContainer" instance=ExtResource( 11 )]
+margin_right = 312.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 112, 112 )
+scale = Vector2( 112, 112 )
+frame = 12
+particles_enabled = false
+
+[node name="CenterContainer3" type="CenterContainer" parent="AdScreen/VBoxContainer"]
+margin_top = 204.0
+margin_right = 512.0
+margin_bottom = 288.0
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="AdScreen/VBoxContainer/CenterContainer3" groups=[
+"ResizableNodes",
+]]
+margin_left = 128.0
+margin_top = 31.0
+margin_right = 384.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.643137, 0.643137, 0.643137, 1 )
+text = "(watch a rewarded video to undo the last move)"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" parent="AdScreen" instance=ExtResource( 11 )]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 473.934
+margin_top = 9.38596
+margin_right = 529.934
+margin_bottom = 65.386
+rect_min_size = Vector2( 28, 28 )
+scale = Vector2( 28, 28 )
+frame = 10
+particles_enabled = false
+custom_anchor = "top_right"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AdScreen"]
+"anims/AdScreen Fade" = ExtResource( 21 )
+
+[node name="UndoManager" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="CloudManager" type="Node" parent="."]
+[connection signal="pressed" from="GUI/Player1Controls/Left1" to="GUI" method="_on_Left1_pressed"]
+[connection signal="pressed" from="GUI/Player1Controls/Forward1" to="GUI" method="_on_Forward1_pressed"]
+[connection signal="pressed" from="GUI/Player1Controls/Reverse1" to="GUI" method="_on_Reverse1_pressed"]
+[connection signal="pressed" from="GUI/Player1Controls/Right1" to="GUI" method="_on_Right1_pressed"]
+[connection signal="pressed" from="GUI/Player2Controls/Left2" to="GUI" method="_on_Left2_pressed"]
+[connection signal="pressed" from="GUI/Player2Controls/Forward2" to="GUI" method="_on_Forward2_pressed"]
+[connection signal="pressed" from="GUI/Player2Controls/Reverse2" to="GUI" method="_on_Reverse2_pressed"]
+[connection signal="pressed" from="GUI/Player2Controls/Right2" to="GUI" method="_on_Right2_pressed"]
+[connection signal="pressed" from="GUI/Menu" to="PauseScreen" method="_on_Menu_pressed"]
+[connection signal="pressed" from="GUI/Retry2" to="PauseScreen" method="_on_Retry_pressed"]
+[connection signal="pressed" from="GUI/Undo" to="GUI" method="_on_Undo_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/VBoxContainer/HBoxContainer/CenterContainer/Menu" to="PauseScreen" method="_on_Menu_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/VBoxContainer/HBoxContainer/CenterContainer2/Next" to="PauseScreen" method="_on_Next_pressed"]
+[connection signal="pressed" from="PauseScreen/Control/VBoxContainer/CenterContainer/Retry" to="PauseScreen" method="_on_Retry_pressed"]
+[connection signal="tween_completed" from="PauseScreen/Tween" to="PauseScreen" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="AdScreen/VBoxContainer/CenterContainer/TextureButton" to="AdScreen" method="_on_Button_pressed"]
+[connection signal="pressed" from="AdScreen/Close" to="AdScreen" method="_on_Close_pressed"]

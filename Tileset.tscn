@@ -1,0 +1,362 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Tiles/TileBasic.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+offset = Vector2( 0, -64 )
+
+[node name="Grass" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153.942, 0 )
+offset = Vector2( 0, -64 )
+frame = 1
+
+[node name="Button1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 324.989, 0 )
+offset = Vector2( 0, -64 )
+frame = 2
+
+[node name="Button2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 485.04, 0 )
+offset = Vector2( 0, -64 )
+frame = 3
+
+[node name="Button3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 642.647, 0 )
+offset = Vector2( 0, -64 )
+frame = 4
+
+[node name="Elevator1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 796.589, 0 )
+offset = Vector2( 0, -64 )
+frame = 5
+
+[node name="Elevator2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 950.531, 0 )
+offset = Vector2( 0, -64 )
+frame = 6
+
+[node name="Elevator3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1109.7, 0 )
+offset = Vector2( 0, -64 )
+frame = 7
+
+[node name="Mirror1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 8
+
+[node name="Mirror2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 142.84, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 9
+
+[node name="Mirror3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 326.491, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 10
+
+[node name="Mirror4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 487.695, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 11
+
+[node name="Mirror5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 642.779, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 12
+
+[node name="Mirror6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 795.821, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 13
+
+[node name="Grass2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 965.188, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 14
+
+[node name="Grass3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1148.84, 158.124 )
+offset = Vector2( 0, -64 )
+frame = 15
+
+[node name="MirrorBlue1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 16
+
+[node name="MirrorBlue2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 140.799, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 17
+
+[node name="MirrorRed1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 324.45, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 18
+
+[node name="MirrorRed2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 497.898, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 19
+
+[node name="MirrorLightBlue1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 644.819, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 20
+
+[node name="MirrorLightBlue2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 791.74, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 21
+
+[node name="Grass4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 968.74, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 22
+
+[node name="Grass5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1156.24, 311.166 )
+offset = Vector2( 0, -64 )
+frame = 23
+
+[node name="MirrorUpwards1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 24
+
+[node name="MirrorUpwards2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 145.5, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 25
+
+[node name="MirrorUpwards3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 313.501, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 26
+
+[node name="MirrorUpwards4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 480.001, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 27
+
+[node name="MirrorDownwards1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 652.502, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 28
+
+[node name="MirrorDownwards2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 805.502, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 29
+
+[node name="MirrorDownwards3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 966.002, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 30
+
+[node name="MirrorDownwards4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1152, 444.666 )
+offset = Vector2( 0, -64 )
+frame = 31
+
+[node name="MirrorUpwardsStatic" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 32
+
+[node name="MirrorUpwardsStatic2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160.5, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 33
+
+[node name="MirrorUpwardsStatic3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 316.501, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 34
+
+[node name="MirrorUpwardsStatic4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 483.001, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 35
+
+[node name="MirrorDownwardsStatic1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 655.502, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 36
+
+[node name="MirrorDownwardsStatic2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 810.002, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 37
+
+[node name="MirrorDownwardsStatic3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 982.503, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 38
+
+[node name="MirrorDownwardsStatic4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1155, 617.502 )
+offset = Vector2( 0, -64 )
+frame = 39
+
+[node name="Butterflies" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 40
+
+[node name="Butterflies2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 159.381, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 41
+
+[node name="Butterflies3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 316.865, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 42
+
+[node name="GateBlue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 474.317, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 43
+
+[node name="GateRed" parent="." instance=ExtResource( 1 )]
+position = Vector2( 652.417, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 44
+
+[node name="GateLightBlue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 817.612, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 45
+
+[node name="Fear" parent="." instance=ExtResource( 1 )]
+position = Vector2( 985.388, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 46
+
+[node name="IceTile" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1158.33, 771.191 )
+offset = Vector2( 0, -64 )
+frame = 47
+
+[node name="IceButterflies" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1.52759, 929.641 )
+offset = Vector2( 0, -64 )
+frame = 48
+
+[node name="IceGateBlue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 166.429, 929.641 )
+offset = Vector2( 0, -64 )
+frame = 49
+
+[node name="IceButton1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 316.501, 929.641 )
+offset = Vector2( 0, -64 )
+frame = 50
+
+[node name="Doubts" parent="." instance=ExtResource( 1 )]
+position = Vector2( 481.289, 929.641 )
+offset = Vector2( 0, -64 )
+frame = 51
+
+[node name="Doubts2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 649.246, 929.641 )
+offset = Vector2( 0, -64 )
+frame = 52
+
+[node name="Doubts3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 826.71, 932.81 )
+offset = Vector2( 0, -64 )
+frame = 53
+
+[node name="IceButton2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 994.886, 932.81 )
+offset = Vector2( 0, -64 )
+frame = 54
+
+[node name="IceButton3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1163.06, 932.81 )
+offset = Vector2( 0, -64 )
+frame = 55
+
+[node name="PLACEHOLDER1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2.51062, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 56
+
+[node name="IceButterfliesRed" parent="." instance=ExtResource( 1 )]
+position = Vector2( 170.641, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 57
+
+[node name="IceButterfliesLightBlue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 329.576, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 58
+
+[node name="PLACEHOLDER2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 489.657, 1082.5 )
+offset = Vector2( 0, -64 )
+
+[node name="IceGateRed" parent="." instance=ExtResource( 1 )]
+position = Vector2( 654.838, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 60
+
+[node name="IceGateLightBlue" parent="." instance=ExtResource( 1 )]
+position = Vector2( 824.862, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 61
+
+[node name="IceGateLightBlue2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1000.43, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 62
+
+[node name="PLACEHOLDER3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1166.49, 1082.5 )
+offset = Vector2( 0, -64 )
+frame = 63
+
+[node name="Ground1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0.358276, 1244.16 )
+offset = Vector2( 0, -64 )
+frame = 64
+
+[node name="Ground2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 174.955, 1244.16 )
+offset = Vector2( 0, -64 )
+frame = 65
+
+[node name="Ground3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 332.307, 1244.16 )
+offset = Vector2( 0, -64 )
+frame = 66
+
+[node name="Ground4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 491.815, 1242.01 )
+offset = Vector2( 0, -64 )
+frame = 67
+
+[node name="Grass6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664.256, 1242.01 )
+offset = Vector2( 0, -64 )
+frame = 68
+
+[node name="Grass7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 821.608, 1242.01 )
+offset = Vector2( 0, -64 )
+frame = 69
+
+[node name="Grass8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 996.205, 1242.01 )
+offset = Vector2( 0, -64 )
+frame = 70
+
+[node name="Grass9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1166.49, 1242.01 )
+offset = Vector2( 0, -64 )
+frame = 71

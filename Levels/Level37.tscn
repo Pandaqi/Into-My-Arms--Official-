@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 2 )]
+cur_level = 37
+button_parameters = [ Vector2( 0, 3 ), Vector2( 0, 2 ), Vector2( -4, 0 ) ]
+elevator_move_axes = [ 2, 2, 1 ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -131073, 1, 0, -131067, 1, 0, -65535, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, 1, 1, 0, 2, 2, 0, 3, 1, 0, 4, 1, 0, 5, 5, 0, 65537, 1, 0, 65539, 1, 0, 65540, 1, 0, 131073, 6, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -196605, 3, 0, -65537, 32, 0, -131069, 26, 0, -1, 32, 0, -65533, 26, 0, 65535, 32, 0, 3, 26, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 1 )]
+position = Vector2( 260.286, 34.4265 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -262144, 7, 0, -262143, 1, 0, -131073, 4, 0, -196607, 1, 0, -65537, 1, 0, -131071, 1, 0, -1, 3, 0, -65535, 1, 0 )
+
+[node name="Level3" parent="." index="5"]
+tile_data = PoolIntArray( -196611, 36, 0, -262143, 38, 0, -131075, 36, 0, -196607, 38, 0, -65539, 36, 0, -131071, 38, 0 )
+
+[node name="Player2" parent="Level3" index="0" instance=ExtResource( 1 )]
+position = Vector2( 64.5786, -127.435 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( 85.4015, 187.76 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 202.125, 228.009 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 414.106, 202.518 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 497.289, 154.218 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 55.8852, 142.143 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( -89.0131, 45.5445 )
+z_index = -1000
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 462.406, 75.0608 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = 399.0
+margin_top = -243.0
+margin_right = 922.0
+margin_bottom = -59.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "That's why you must see, my dear,
+Love is like the siren song
+Your mind knows you mustn’t answer the call
+But your heart could never be so strong"
+text = "That's why you must see, my dear,
+Love is like the siren song
+Your mind knows you mustn’t answer the call
+But your heart could never be so strong"
+__meta__ = {
+"_edit_use_anchors_": false
+}

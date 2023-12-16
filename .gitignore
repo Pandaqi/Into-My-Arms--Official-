@@ -1,0 +1,6 @@
+*.wav
+*.sample
+Deliverables/*
+.import/*
+Affinity Files/*
+android/*

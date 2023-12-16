@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 21
+button_parameters = [ Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 1 ) ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -196606, 0, 0, -196605, 40, 0, -196604, 46, 0, -131071, 0, 0, -131070, 0, 0, -131068, 46, 0, -65535, 42, 0, -65534, 46, 0, -65533, 46, 0, -65532, 46, 0, 1, 0, 0, 2, 46, 0, 65537, 0, 0, 65538, 46, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -262143, 0, 0, -196608, 1, 0, -196607, 1, 0, -65536, 1, 0, 0, 1, 0 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -262145, 0, 0, -327680, 41, 0 )
+
+[node name="Player" parent="Level2" index="0" instance=ExtResource( 2 )]
+position = Vector2( 2.79541, -33.812 )
+
+[node name="Player2" parent="Level2" index="1" instance=ExtResource( 2 )]
+position = Vector2( 190.476, -128.258 )
+PLAYER_NUM = 1
+
+[node name="Level3" parent="." index="5"]
+tile_data = PoolIntArray( -327682, 1, 0 )
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( -32.8617, 136.341 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 72.4814, 183.564 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 164.505, 138.763 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 256.529, 160.558 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 359.45, 167.823 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 469.637, 115.757 )
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 528.968, 41.8953 )
+z_index = -1000
+
+[node name="Particles8" parent="CloudManager" index="7" instance=ExtResource( 4 )]
+position = Vector2( -36.4942, 72.1663 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = -296.0
+margin_top = -314.0
+margin_right = 131.0
+margin_bottom = -132.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "But you see, I have this fear
+I can’t support you all the way
+And I don’t want to be the one
+Who made you leave rather than stay"
+text = "But you see, I have this fear
+I can’t support you all the way
+And I don’t want to be the one
+Who made you leave rather than stay"
+__meta__ = {
+"_edit_use_anchors_": false
+}

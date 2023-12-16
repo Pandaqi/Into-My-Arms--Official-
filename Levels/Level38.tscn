@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 38
+button_parameters = [ Vector2( -2, 0 ), Vector2( 0, 2 ), Vector2( 0, 2 ) ]
+elevator_move_axes = [ 2, 0, 0 ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( 2, 3, 0, 131070, 32, 0, 65536, 6, 0, 131072, 1, 0, 131073, 1, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -131071, 33, 0, -2, 32, 0, -65534, 34, 0, 65534, 32, 0, 2, 34, 0, 65538, 34, 0, 131073, 35, 0 )
+
+[node name="Player" parent="Level1" index="0" instance=ExtResource( 2 )]
+position = Vector2( -127.217, 31.5657 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -65538, 4, 0, -65537, 7, 0, -2, 2, 0, -1, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 5, 0 )
+
+[node name="Level3" parent="." index="5"]
+tile_data = PoolIntArray( -196609, 37, 0, -131076, 28, 0, -196608, 38, 0, -65540, 28, 0, -4, 28, 0, 65535, 39, 0 )
+
+[node name="Player2" parent="Level3" index="0" instance=ExtResource( 2 )]
+position = Vector2( 2.79211, -93.1587 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( 98.818, 178.368 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 0.877472, 189.101 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( -115.846, 170.318 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 173.951, 146.168 )
+
+[node name="Particles6" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 250.425, 99.2105 )
+
+[node name="Particles7" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( -205.737, 76.4024 )
+z_index = -1000
+
+[node name="Particles5" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 282.624, 44.2028 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="16" groups=[
+"InstructionLabels",
+]]
+margin_left = 274.941
+margin_top = -213.015
+margin_right = 740.941
+margin_bottom = -31.0154
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_text = "And when all is said and done,
+And we’re the only ones left on the stage
+Could you honestly tell me you love me
+And never wished for better days?"
+text = "And when all is said and done,
+And we’re the only ones left on the stage
+Could you honestly tell me you love me
+And never wished for better days?"
+__meta__ = {
+"_edit_use_anchors_": false
+}

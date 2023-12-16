@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/LevelSkeleton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tilemap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/CloudParticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/BasicFont32.tres" type="DynamicFont" id=5]
+
+[node name="Node2D" index="0" instance=ExtResource( 1 )]
+cur_level = 33
+button_parameters = [ Vector2( 0, 2 ), Vector2( 0, 1 ), Vector2( 0, 1 ) ]
+
+[node name="Level0" parent="." index="2"]
+tile_data = PoolIntArray( -131065, 40, 0, -65533, 0, 0, -65532, 1, 0, -65529, 1, 0, 3, 1, 0, 7, 1, 0, 65539, 1, 0, 196610, 2, 0, 196611, 1, 0, 196612, 1, 0, 196615, 0, 0, 196616, 1, 0, 262151, 1, 0, 262152, 1, 0 )
+
+[node name="Level1" parent="." index="3"]
+tile_data = PoolIntArray( -196605, 41, 0, -131070, 0, 0, -131069, 44, 0, -131068, 44, 0, -131067, 44, 0, -131066, 43, 0, -65535, 41, 0, -65534, 43, 0, -65530, 43, 0, 2, 43, 0, 5, 3, 0, 6, 43, 0, 65538, 43, 0, 65542, 43, 0, 131074, 44, 0, 131075, 44, 0, 131076, 44, 0, 131077, 44, 0, 131078, 0, 0 )
+
+[node name="Level2" parent="." index="4"]
+tile_data = PoolIntArray( -262141, 1, 0, -196607, 52, 0, -196603, 53, 0, -65536, 1, 0, 65537, 51, 0, 65541, 1, 0 )
+
+[node name="Player" parent="Level3" index="0" instance=ExtResource( 2 )]
+position = Vector2( 257.964, 160.315 )
+
+[node name="Level4" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 0, -1 )
+
+[node name="Player2" parent="Level4" index="0" instance=ExtResource( 2 )]
+position = Vector2( 511.536, -26.5163 )
+PLAYER_NUM = 1
+
+[node name="Particles" parent="CloudManager" index="0" instance=ExtResource( 4 )]
+position = Vector2( -109.138, 240.084 )
+
+[node name="Particles2" parent="CloudManager" index="1" instance=ExtResource( 4 )]
+position = Vector2( 8.92737, 274.967 )
+
+[node name="Particles3" parent="CloudManager" index="2" instance=ExtResource( 4 )]
+position = Vector2( 147.117, 417.182 )
+
+[node name="Particles4" parent="CloudManager" index="3" instance=ExtResource( 4 )]
+position = Vector2( 246.4, 470.848 )
+
+[node name="Particles5" parent="CloudManager" index="4" instance=ExtResource( 4 )]
+position = Vector2( 348.365, 421.207 )
+
+[node name="Particles6" parent="CloudManager" index="5" instance=ExtResource( 4 )]
+position = Vector2( 494.605, 278.992 )
+
+[node name="Particles7" parent="CloudManager" index="6" instance=ExtResource( 4 )]
+position = Vector2( 571.079, 234.717 )
+
+[node name="Particles8" parent="CloudManager" index="7" instance=ExtResource( 4 )]
+position = Vector2( 656.945, 159.585 )
+z_index = -1000
+
+[node name="Particles9" parent="CloudManager" index="8" instance=ExtResource( 4 )]
+position = Vector2( -95.7214, 190.443 )
+z_index = -1000
+
+[node name="Instructions-Rule1" type="RichTextLabel" parent="." index="17" groups=[
+"InstructionLabels",
+]]
+margin_left = -143.0
+margin_top = -188.85
+margin_right = 601.0
+margin_bottom = 38.1497
+custom_fonts/normal_font = ExtResource( 5 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+bbcode_enabled = true
+bbcode_text = "But you see, I have these doubts as well … and maybe that’s alright."
+text = "But you see, I have these doubts as well … and maybe that’s alright."
+__meta__ = {
+"_edit_use_anchors_": false
+}

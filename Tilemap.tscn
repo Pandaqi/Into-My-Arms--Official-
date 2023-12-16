@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TilesetV3.tres" type="TileSet" id=1]
+
+[node name="Level0" type="TileMap" groups=[
+"TileMaps",
+]]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+cell_y_sort = true
+format = 1
